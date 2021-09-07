@@ -4,6 +4,8 @@ const gameBoard = (() => {
     ["", "", ""],
     ["", "", ""],
   ];
+  //sets inital player marker
+  let playerMarker = "X";
   //resets gameboard array
   const resetBoard = () => {
     gameboard = [
@@ -34,8 +36,6 @@ const gameBoard = (() => {
   };
   const startGame = () => {
     const td = document.querySelectorAll("td");
-    //sets inital player marker
-    let playerMarker = "X";
     //assigns values to the gameboard array
     td.forEach((element) =>
       element.addEventListener("click", function (e) {
@@ -48,13 +48,13 @@ const gameBoard = (() => {
             gameboard[2][datakey - 6] = playerMarker;
           } else gameboard[0][datakey] = playerMarker;
           //returns true if there is a winner and grabs the names to display to user.
+          playerMarker = setPlayer(playerMarker);
           if (checkWinner("X") == true) {
             announceWinner(document.querySelector("#p1").textContent);
           }
           if (checkWinner("O") == true) {
             announceWinner(document.querySelector("#p2").textContent);
           }
-          playerMarker = setPlayer(playerMarker);
         }
         if (isTie() == true) {
           TieGame();
@@ -90,6 +90,7 @@ const gameBoard = (() => {
       displayWinner.textContent = `congrats ${player}, you are the winner!`;
       winnerScreenWrapper.style.display = "block";
       winnerScreenWrapper.style.pointerEvents = "auto";
+      playerMarker = "X";
       displayController.playAgain();
     }
   };
