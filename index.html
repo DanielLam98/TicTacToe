@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="stylesheet.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <title>Tic Tac Toe</title>
+  </head>
+  <body>
+    <div class="bodyContainer gameWrapper">
+      <div class="displayController">
+        <h1><span style="color: rgb(0, 204, 255)">Tic Tac</span> Toe</h1>
+        <h2>Good Luck and Have Fun!</h2>
+      </div>
+
+      <div id="gameBoard"></div>
+
+      <p id="p1"></p>
+      <p id="p2"></p>
+    </div>
+    <div id="popupWrapper">
+      <div id="popup">
+        <form id="playerForm" method="POST" onsubmit="return false">
+          <label for="player">Player 1 Name:</label>
+          <input id="playerOne" type="text" name="player" />
+          <label for="player2">Player 2 Name:</label>
+          <input id="playerTwo" type="text" name="playerTwo" />
+          <input id="playBtn" type="submit" name="submit" value="PLAY" />
+        </form>
+      </div>
+    </div>
+    <div id="winnerScreenWrapper">
+      <div id="winnerScreen">
+        <p id="displayWinner"></p>
+        <button id="playAgainBtn">Play Again</button>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
